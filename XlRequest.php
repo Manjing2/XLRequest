@@ -82,7 +82,7 @@ class XlRequest {
 				[
 					'debug' => FALSE,
 					'json' => $payload,
-					'headers' => $header
+					'headers' => $this->header
 				]
 			);
 			$body = json_decode($response->getBody());
@@ -157,7 +157,7 @@ class XlRequest {
 			$response = $this->client->post('/prepaid/opPurchase',[
 					'debug' => FALSE,
 					'json' => $payload,
-					'headers' => $header
+					'headers' => $this->header
 			]);
 			$status = json_decode((string) $response->getBody());
 			
