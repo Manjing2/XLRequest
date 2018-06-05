@@ -17,7 +17,7 @@ Misal dipasang di public_html ```http://webdor.com```
 Edit index.html cari kata ```http://192.168.8.101/count.php``` <br/>
 Kemudian Rubah dengan domain yg digunakan. bisa juga berupa ip jika menggunakan vps
 <br>
-```Contoh: http://webdor.com/count.php```
+``` $.get('http://webdor.com/count.php')```
 <br>
 Edit lagi index.html dan arahkan form action post ke domain yg digunakan
 ```
