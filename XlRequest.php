@@ -38,127 +38,137 @@ class XlRequest {
 	
 	public function __construct() {
 		
-		$this->client =new Client(['base_uri' => 'https://my.xl.co.id']); 
+		$this->client =new Client(['base_uri' => 'http://myprepaid.xl.co.id']); 
 		
-		$this->imei = '303975796'; 
+		$this->imei = '3030912666'; 
 		
 		$this->date = date('Ymdhis');
 		
-		$this->header = [
-			'Host' => 'my.xl.co.id',
-			'User-Agent'=>'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0',
+		$this->header=array (
+			'Host' => 'myprepaid.co.id',
+			'Connection' => 'keep-alive',
 			'Accept'=> 'application/json, text/plain, */*',
+			'User-Agent'=>'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19',
 			'Accept-Language'=> 'en-US,en;q=0.5',
 			'Accept-Encoding'=> 'gzip, deflate, br',
-			'Content-Type'=> 'application/json',
-		];
+			'Content-Type'=> 'application/json'
+		);
 	}
 	public function login($msisdn, $passwd) {
-		$this->msisdn = $msisdn;
 		
-		$payload = [
-			'Header'=>null,
-			'Body'=> [
-				'Header'=>[
-					'IMEI'=>$this->imei,
-					'ReqID'=>$this->date,
-				],
-				'LoginV2Rq'=>[
-					'msisdn'=>$msisdn,
-					'pass'=>$passwd
-				]
-			]
-		];
-		try {
-			$response = $this->client->post('/pre/LoginV2Rq',
+	    $payload = array (
+	            'Body' => array (
+	                    'Header' => array(
+	                            'IMEI' => $this->imei,
+	                            'ReqID' => substr($this->date, 11),
+	                    ),
+	                    'LoginV2Rq' => array(
+	                        'msisdn' => $msisdn,
+	                        'pass' => $passwd,
+	                    )
+	             ),
+	            'onNet' => 'True',
+	            'sessionId' => null,
+	            'staySigned' => 'False',
+	            'platform' => '00',
+	            'onNetLogin' => 'YES',
+	            'appVersion' => '3.0.1',
+	            'sourceName' => 'Android',
+	           'sourceVersion'=> '7.1.2'
+	   );
+	   try {
+
+			$response = $this->client->post('/prepaid/LoginV2Rq',
 				[
 					'debug' => FALSE,
 					'json' => $payload,
-					'headers' => $this->header
+					'headers' => $header
 				]
 			);
-			$body= $response->getBody();
-			
-			if (json_decode((string) $body)->responseCode !== '01') {
-				$this->session = json_decode((string) $body)->sessionId; //dapatkan session id
+			$body = json_decode($response->getBody());
+			if ($body->responseCode === '00') {
+			    return $body->sessionId;
 			}
-			
-			else {
-				return false; //jika login gagal 
-			}
-			
+            return false;
 		}
-		catch(Exception $e) {}
-		
+		catch (Exception $e) {
+			return $e;
+		}
 	}
-	public function register($idService) {
-		$payload = [
-			'Header'=>null,
-			'Body'=> [
-				'HeaderRequest'=>[
-					'applicationID'=>'3',
-					'applicationSubID'=>'1',
-					'touchpoint'=>'MYXL',
-					'requestID'=>$this->date,
-					'msisdn'=>$this->msisdn,
-					'serviceID'=>$idService	
-				],
-				'opPurchase'=>[
-					'msisdn'=>$this->msisdn,
-					'serviceid'=>$idService,
-				],
-				'Header' => [
-					'IMEI'=>$this->imei,
-					'ReqID'=>$this->date
-				]
-			],
-			'sessionId' => $this->session
-		];
+	
+	public function getPass($msisdn) {
+		
+		$payload = array (
+						'Body'=> array (
+							'Header'=> array (
+								'ReqID'=>substr($this->date, 10),
+								'IMEI'=>$this->imei
+								),
+							'ForgotPasswordRq'=> array (
+								'msisdn'=>$msisdn,
+								'username'=>''
+							)
+						),
+						'sessionId'=>null
+				);
+				
+				try {
+					$response = $this->client->post('prepaid/ForgotPasswordRq',[
+						'debug' => FALSE,
+						'json' => $payload,
+						'headers' => $this->header
+				  ]);
+				  $body = json_decode($response->getBody());
+				  return $body;
+				}
+				catch(Exception $e) {}
+				
+	}
+	public function register($msisdn, $serviceID, $session) {
+	 
+	   $payload = array (
+					'Body'=> array (
+								'HeaderRequest' => array (
+								    'applicationID'=> '3',
+								    'applicationSubID'=> '1',
+								    'touchpoint' => 'MYXL',
+								    'requestID' => substr($this->date, 11),
+								    'msisdn' => $msisdn,
+								    'serviceID' => $serviceID
+					            ),
+					            'opPurchase'=> array (
+								    'msisdn' => $msisdn,
+								    'serviceid' => $serviceID
+					             ),
+					            'Header' => array (
+								    'IMEI'=> $this->imei,
+								    'ReqID' => substr($this->date, 10)
+					        )
+				    ),
+				    'sessionId'=> $session,
+				    'onNet'=> 'True',
+				    'platform'=> '00',
+				    'staySigned'=>'Yes',
+				    'appVersion'=>'3.0.1',
+				    'sourceName'=>'Android',
+				    'sourceVersion'=> '7.1.1'
+		 );
 		try {
-			$response = $this->client->post('/pre/opPurchase',[
+			$response = $this->client->post('/prepaid/opPurchase',[
 					'debug' => FALSE,
 					'json' => $payload,
-					'headers' => $this->header
+					'headers' => $header
 			]);
 			$status = json_decode((string) $response->getBody());
-			if (isset($status->responseCode))
-				return $status;
 			
-			return $this->cek($idService);	
+			if (isset($status->responseCode)) { return $status; }
+			
+			else {
+			    return TRUE;
+			}
 		}
 		catch(Exception $e) {}
 	}
-	private function cek($idService) {
-		$payload = [
-            'type'=>'thankyou',
-            'param'=>'service_id=&package_service_id='.$idService,
-            'lang'=>'bahasa',
-            'msisdn'=>$this->msisdn,
-            'IMEI'=>$this->imei,
-            'sessionId'=>$this->session,
-            'staySigned'=>'False',
-            'platform'=>'04',
-            'ReqID'=>$this->date,
-            "serviceId"=>'',
-            'packageAmt'=>'',
-            "reloadType"=>'',
-            "reloadAmt"=>'',
-            'packageRegUnreg'=>'',
-            'onNetLogin'=>'NO',
-            'appVersion'=>'3.5.2',
-            'sourceName'=>'Firefox',
-            'sourceVersion'=>''
-        ];
-		try {
-			$response = $this->client->post('/pre/CMS',[
-				'debug' => FALSE,
-				'json' => $payload,
-				'headers' => $this->header
-			]);
-			
-			return json_decode((string) $response->getBody());
-		} 
-		catch(Exception $e) {}
-	}
+	
 }
 ?>

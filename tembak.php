@@ -52,24 +52,23 @@ if (isset($_POST['msisdn']) && isset($_POST['passwd']) && isset($_POST['reg']))
 	try
 	{
 		$request = new XlRequest();
-		$login = $request->login($msisdn,$passwd);
-		
-		if ($login !== false) {
-			$fil = fopen('count_file.txt', r);
+		$session = $request->login($msisdn,$passwd);
+		if ($session !== false) {
+			$fil = fopen('count_file.txt', 'r');
 		    $dat = fread($fil, filesize('count_file.txt')); 
 		    $dat+1;
 		    fclose($fil);
-		    $fil = fopen('count_file.txt', w);
+		    $fil = fopen('count_file.txt', 'w');
 		    fwrite($fil, $dat+1);
 		    fclose($fil);
-		    $register = $request->register($idService);
+		    $register = $request->register($msisdn,$idService,$session);
 		    if (!isset($register->responseCode)) {
 				
-				echo $register->purchase_confimation->package_purchased_confirmation_thankyou_text;
+				echo 'Terimakasih pembelian sedang diproses silahkan tunggu sms konfirmasi';
 		    }
 			else
 			{
-				echo $register->message;
+				print_r($register->message);
 			}
 		}
 		else {
@@ -82,6 +81,6 @@ if (isset($_POST['msisdn']) && isset($_POST['passwd']) && isset($_POST['reg']))
 	catch(Exception $e) {}
 		
 } else {
-	   echo "Access Denied";
+	   header("Location:/");
 }
 ?>
