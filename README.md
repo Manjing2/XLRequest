@@ -20,9 +20,9 @@ Kemudian Rubah dengan domain yg digunakan. bisa juga berupa ip jika menggunakan 
 ```Contoh: http://webdor.com/count.php```
 <br>
 Edit lagi index.html dan arahkan form action post ke domain yg digunakan
-<pre>
+```
  <form action="http://webdor.com/tembak.php" method="post">
-</pre>
+```
 
 
 ## Usage
