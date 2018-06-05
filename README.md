@@ -17,7 +17,8 @@ misal webmu.com/count.php
 
 
 2.Edit index.html dan ubah form action sesuai domain anda
-misal <form action="webmu.com/tembak.php" action="POST">
+
+webmu.com/tembak.php
 
 
 
