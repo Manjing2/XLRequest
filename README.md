@@ -14,9 +14,10 @@ Download atau clone
 
 Misal dipasang di public_html
 
-------------------------------------------------------------------------
+###
 Edit index.html cari kata ```http://192.168.8.101/count.php``` <br/>
 Kemudian Rubah dengan domain yg digunakan. bisa juga berupa ip jika menggunakan vps
+<br>
 ```Contoh: http://webdor.com/count.php```
 <br>
 
