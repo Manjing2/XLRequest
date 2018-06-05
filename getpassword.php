@@ -37,6 +37,6 @@ if (isset($_POST['msisdn'])) {
 	}
 }
 else {
-	redirect ("/");
+	Header("Location:/");
 }
 ?>
