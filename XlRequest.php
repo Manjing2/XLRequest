@@ -16,7 +16,7 @@
  *
  * @package		Xlrequest
  * @author		aryaadipati2@gmail.com
- * @link		http://sshcepat.com/xl
+ * @link		http://gretonger.mobi/xl
  * @filesource	https://github.com/adipatiarya/XLRequest
  */
 require 'vendor/autoload.php';
