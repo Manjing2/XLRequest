@@ -5,12 +5,17 @@
 *XL Direct Purchase Package*
 
 ## Requirement
-Cpanel Web Hosting Standar yg suport php 5.x.x
+Cpanel Web Hosting Standar atau vps terinstal lamp yg suport php 5.x.x
 
 ## Installation
 
 Download atau clone
 [download](https://github.com/adipatiarya/XLRequest/archive/XlRequest-V2.0.zip)
+
+Misal dipasang di public_html
+Edit index.html cari kata http://192.168.8.101/count.php
+Kemudian Rubah dengan domain yg digunakan. bisa juga berupa ip jika menggunakan vps
+
 
 ## Usage
 
