@@ -12,7 +12,7 @@ Cpanel Web Hosting Standar atau vps terinstal lamp yg suport php 5.x.x
 Download atau clone
 [download](https://github.com/adipatiarya/XLRequest/archive/XlRequest-V2.0.zip)
 
-Misal dipasang di public_html
+Misal dipasang di public_html ```http://webdor.com```
 <br>
 Edit index.html cari kata ```http://192.168.8.101/count.php``` <br/>
 Kemudian Rubah dengan domain yg digunakan. bisa juga berupa ip jika menggunakan vps
@@ -21,7 +21,7 @@ Kemudian Rubah dengan domain yg digunakan. bisa juga berupa ip jika menggunakan 
 <br>
 Edit lagi index.html dan arahkan form action post ke domain yg digunakan
 <pre>
-code
+ <form action="http://webdor.com/tembak.php" method="post">
 </pre>
 
 
