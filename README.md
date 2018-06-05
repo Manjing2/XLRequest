@@ -5,30 +5,14 @@
 *XL Direct Purchase Package*
 
 ## Requirement
-Cpanel Web Hosting Standar
+Cpanel Web Hosting Standar yg suport php 5.x.x
 
-## Cara Installasi
-chmod 777 count_file.txt
-
-group fb : https://web.facebook.com/groups/1528714680491086/
-https://github.com/adipatiarya/XLRequest/archive/XlRequest-V2.0.zip
+## Installation
+Misalkan Mau dipasng di home / public_html
 
 
---cara instalasi----
-misalkan semua file ditaruh di public_html
-
-1.Edit index.html cari kata 192.168.8.1.101/count.php 
-kemudiann ubah 192.168.8.1.101 sesuai dengan domain Yang digunakan
-misal webmu.com/count.php
-
-
-2.Edit index.html dan ubah form action sesuai domain anda
-
-webmu.com/tembak.php
+## Usage
 
 
 
-Request Tembak Xl terbaru cek : https://gretonger.mobi/xl
-MORAL DONATION
-via pulsa gpp gan biar admin semangat updte script
-081382617114
+### Examples
