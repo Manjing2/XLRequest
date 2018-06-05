@@ -8,9 +8,9 @@
 Cpanel Web Hosting Standar yg suport php 5.x.x
 
 ## Installation
-Misalkan Mau dipasng di home / public_html
-Pertama tama download
-[https://github.com/adipatiarya/XLRequest/archive/XlRequest-V2.0.zip](https://github.com/adipatiarya/XLRequest/archive/XlRequest-
+
+Download atau clone
+[download](https://github.com/adipatiarya/XLRequest/archive/XlRequest-V2.0.zip)
 
 ## Usage
 
