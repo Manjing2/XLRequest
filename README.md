@@ -1,6 +1,6 @@
-# ![logo](https://github.com/albertoanggi/xl-py/tree/master/examples/assets/XL-sm.png) XL Python
+# TEMBAK PAKET XL V2.0
 
- [![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-green.svg "Version 1.0.0")](#) [![LICENSE](https://img.shields.io/badge/licence-GPL--3.0-blue.svg "LICENSE")](https://github.com/albertoanggi/xl-py/blob/master/LICENSE) [![Supported python versions: 3.x](https://img.shields.io/badge/python-3.x-green.svg "Supported python versions: 3.x")](https://www.python.org/downloads/)
+ [![Version 2.0.0](https://img.shields.io/badge/version-1.0.0-green.svg "Version 1.0.0")](#) [![LICENSE](https://img.shields.io/badge/licence-GPL--3.0-blue.svg "LICENSE")](https://github.com/adipatiarya/XLRequest/blob/master/LICENSE) [![Supported php versions: 5.x](https://img.shields.io/badge/php-5.x-green.svg "Supported php versions: 5.x")](https://www.python.org/downloads/)
 
 *XL Direct Purchase Package*
 
