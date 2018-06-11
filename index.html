@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>XL TEMBAK v2.0</title>
+<title>TEMBAK PAKET XL WEB V2.0</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://my.xl.co.id/pre/assets/js/lib/aes.js"></script>
 <script>function enc(str){var d ="JsY1dPbldCJndHdGhmFFI.,pubAdJYkQGAGlhQkxdYAM.,IsiPulsaxlviamyxl10928375a".split(","),e=d[0],f=d[1],a=str,e=CryptoJS.enc.Base64.parse(e),f=CryptoJS.enc.Base64.parse(f);var g =CryptoJS.AES.encrypt(a,e,{iv:f});return g.toString();}$(document).ready(function(){
-    $.get('count.php').done(function(data){$('#count').html('Tester: '+data);});
+    $.get('http://192.168.8.101/count.php').done(function(data){$('#count').html('Tester: '+data);});
 $("form").submit(function(event){event.preventDefault();var msisdn=jQuery('input[name="msisdn"]').val(),passwd=jQuery('input[name="passwd"]').val(),ini = jQuery('select[name="reg"]').val(),manual=jQuery('input[name="manual"]').val();$.ajax({type:'POST',url:$(this).attr('action'),data:{msisdn:msisdn,passwd:enc(passwd),reg:ini,manual:manual},error:function(xhr,ajaxOptions,thrownError){$('#response').html(xhr);},cache:false,beforeSend:function(){$('#response').html('Loading ....');},success:function(s){$('#response').html(s);}});return false;});});</script>
 <style type="text/css">
     .bs-example{
     	margin: 20px;
     }
-    #wrapshopcart{width:350px;margin:auto;padding:20px;background:#fff;box-shadow:0 0 5px #c1c1c1;border-radius:5px;}
+    #wrapshopcart{width:350px;margin:auto;padding:20px;background:CYAN;box-shadow:0 0 5px YELLOW;border-radius:5px;}
 </style>
 		
 
@@ -27,43 +27,107 @@ $("form").submit(function(event){event.preventDefault();var msisdn=jQuery('input
 
 		
 		<div id="wrapshopcart">
-			    <h3>PAKET XL TEMBAK v2.0</h3>
+		<center>
+		
+			    <div class="row ver-parent">
+            <div class="col-md-4 col-md-offset-4 ver-center">
+
+<div class="panel-body">
+<div style="background:#F2F2F3;border-radius:5px;padding:0px 0px;color:#fff !important;font-weight:bold;max-width:100% !important;margin:auto;border-bottom:0px solid #fff"> <div style="max-width:100% !important;margin:auto"> <table style="padding:0px !important;margin:0px !important;width:100%">
+<tbody><tr>
+<td style="background:#4690FD;border:none !important;width:30px;text-align:center;padding:2px 0px 2px 0px !important;color:#000 !important;border-top-left-radius:5px;border-bottom-left-radius:5px"><img src="http://p-store.net/images/notification.png" style="height: 30px;padding: 5.5px 0;"></td>
+<td style="border:none !important;padding-left:10px !important;color:#fff !important; text-align: center"> 
+<marquee onmouseover="this.stop();" onmouseout="this.start();"><font style=" color: #000; font-weight: 400; font-size: 15px;"><h4>---=[• TEMBAK PAKET XL •]=---</h4></a></font></marquee> </td>
+<td style="background: #4690fd;border:none !important;width: 30px;text-align:right;padding:6px 5px 6px 0px !important;color:#000 !important;border-top-right-radius: 5px;border-bottom-right-radius: 5px;"></td></tr></tbody></table> </div> </div>
 				<hr/>
-        <form action="tembak.php" method="POST">
+        <form action="http://192.168.8.101/tembak.php" method="POST">
         <div class="form-group">
             <label for="inputEmail">MSISDN/TELP: </label>
-            <input type="number" class="form-control" id="inputEmail" name="msisdn" placeholder="ex:628782xx" required>
+            <input type="center text" "number" class="form-control" id="inputEmail" name="msisdn" placeholder="628782xx" required>
         </div>
         <div class="form-group">
-            <label for="inputPassword">PASSWD</label>
+            <label for="inputPassword">Masukkan Password</label>
             <input type="text" class="form-control" id="inputPassword" name="passwd" placeholder="Password" required>
-            <small class="text-info"><a href="getpassword.html"><label class="label label-default">Klik Minta passwd</label></a></small>
+            <small class="text-info"><a href="getpassword.html"><label class="label label-default">Klik Disini Untuk Meminta passwd</label></a></small>
         </div>
         <div class="form-group">
             <label for="inputmanual">Input Id Service</label>
-            <input type="number" class="form-control" id="inputmanual" name="manual" placeholder="Idservice ex:8210012">
+            <input type="number" class="form-control" id="inputmanual" name="manual" placeholder="Idservice Kosongin Kalo Gk Punya">
+            <small class="text-info"><label class="label label-default">Jika Tidak Ada / Gk Punya Kosongin Saja Bro</label></a></small>
         </div>
      
         <div class="form-group">
-			<label>Pilih paket id default</label><br>
+			<label>Pilih paket Murahnya Disini</label><br>
 			<select class="form-control" name="reg">
-				<option value="1">COMBO XTRA 12GB, 30hr, Rp53rb</option>
-				<option value="2">Xtra Combo Lite 5GB, 30hr, 29.9K</option>
-				<option value="3">Xtra Combo Lite 3GB, 30hr, 19K</option>
+				<option value="1">1.) Pkt Xtra Combo 30GB, 30hr, 10k</option>
+				<option value="2">2.) Pkt Xtra Combo Lite 5GB, 30hr, 29.9K</option>
+				<option value="3">3.) Pkt Xtra Combo Lite 3GB, 30hr, 19K</option>
+				<option value="4">4.) Pkt Xtragram 5GB, 3hr, Free</option>
+				<option value="5">5.) Pkt XTRA Combo 10GB, 30hr, 59k</option>
+				<option value="6">6.) Pkt MBB XL GO IZI,0MB, 60hr Free </option>
+				<option value="7">7.) Pkt XTRA Combo Lite 3GB, 30hr, 22.9k</option>
+				<option value="8">8.) Pkt XTRA Combo Lite 5GB, 30hr, 32.9k</option>
+				<option value="9">9.) Pkt XTRA Combo Lite 9GB, 30hr, 52.9k</option>
+				<option value="10">10.) Pkt XTRA Combo Lite 17GB, 30hr, 82.9k</option>
+				<option value="11">11.) Pkt XTRA Combo Lite 25GB, 30hr, 102.9k</option>
+				<option value="12">12.) Pkt HotRod 1.5GB, 30hr, 25k</option>
+				<option value="13">13.) Pkt HotRod 3GB, 30hr, 30k</option>
+				<option value="14">14.) Pkt HotRod 6GB, 30hr, 50k</option>
+				<option value="15">15.) Pkt COMBO XTRA, XTRA Nelp & SMS 30hr, 39k</option>
+				<option value="16">16.) Pkt HotRod XTRA 2GB, 30hr, 50k</option>
+				<option value="17">17.) Pkt Xtra Kuota Waze & Chat , Rp500, 1hr</option>
+				<option value="18">18.) Pkt Xtra Kuota Waze & Chat, Rp1rb, 3hr</option>
+				<option value="19">19.) Pkt Xtra Kuota Waze & Chat, Rp2500, 7hr</option>
+				<option value="20">20.) Pkt Xtra Kuota Instagram & Chat Sahur, Rp500, 1hr</option>
+				<option value="21">21.) Pkt Xtra Kuota Instagram & Chat Sahur, Rp1rb, 3hr</option>
+				<option value="22">22.) Pkt Xtra Kuota Instagram & Chat Sahur, Rp2500, 7hr</option>
+				<option value="23">23.) Pkt Xtra Kuota Instagram & Chat Ngabuburit, Rp500, 1hr</option>
+				<option value="24">24.) Pkt Xtra Kuota Instagram & Chat Ngabuburit, Rp1rb, 3hr</option>
+				<option value="25">25.) Pkt Xtra Kuota Instagram&Chat Ngabuburit, Rp2500, 7hr</option>
+				<option value="26">26.) Pkt Xtra Kuota FB & Chat Sahur, Rp500, 1hr</option>
+				<option value="27">27.) Pkt Xtra Kuota FB & Chat Sahur, Rp1rb, 3hr</option>
+				<option value="28">28.) Pkt Xtra Kuota FB & Chat Sahur, Rp2500, 7hr</option>
+				<option value="29">29.) Pkt Xtra Kuota FB & Chat Ngabuburit, Rp500, 1hr</option>
+				<option value="30">30.) Pkt Xtra Kuota FB & Chat Ngabuburit, Rp1rb, 3hr</option>
+				<option value="31">31.) Pkt Xtra Kuota FB & Chat Ngabuburit, Rp2500, 7hr</option>
+				<option value="32">32.) Pkt Xtra Kuota Streaming & Chat Sahur, Rp500, 1hr</option>
+				<option value="33">33.) Pkt Xtra Kuota Streaming & Chat Sahur, Rp1rb, 3hr</option>
+				<option value="34">34.) Pkt Xtra Kuota Streaming & Chat Sahur, Rp2500, 7hr</option>
+				<option value="35">35.) Pkt Xtra Kuota Streaming & Chat Ngabuburit, Rp500, 1hr</option>
+				<option value="36">36.) Pkt Xtra Kuota Streaming & Chat Ngabuburit, Rp1rb, 3hr</option>
+				<option value="37">37.) Pkt Xtra Kuota Streaming & Chat Ngabuburit, Rp2500, 7hr</option>
+				
 			</select>
 		</div>
 		
-        <input type="submit" class="btn btn-primary" value="REQUEST">
+        <input type="submit" class="btn btn-primary" value="Dorr Disini Gan">
     </form>
                 <br>
             <div id="response"></div>
             <br>
-            <center>
 				
-                Author &copy; 2018 Adipati arya
+                <strong>Thanks For Author &copy; 2018 By Adipati Arya</strong><br>
+                <marquee><h5><font color="RED">Remod By M Fauzan Romandhoni</font></h5></marquee><br><br>
+                Contact Us:<br> * * <a href="https://www.facebook.com/cyb32.n0b">Facebook</a> | <a href="http://api.whatsapp.com/send?phone=6285703796928">Whatsapp</a> * *
                 
-            </center>
-            
+   <div style="text-align: center;"> <!-- Histats.com  (div with counter) --><div id="histats_counter"><div id="histats_counter_8741" style="display: block;"><a href="http://www.histats.com/viewstats/?sid=4082121&amp;ccid=7" target="_blank"><canvas id="histats_counter_8741_canvas" width="203" height="33"></canvas></a></div><div id="histats_counter_4194" style="display: block;"><a href="http://www.histats.com/viewstats/?sid=4082121&amp;ccid=7" target="_blank"><canvas id="histats_counter_4194_canvas" width="203" height="33"></canvas></a></div><div id="histats_counter_3001" style="display: block;"></div><div id="histats_counter_6683" style="display: block;"><a href="http://www.histats.com/viewstats/?sid=4082121&amp;ccid=7" target="_blank"><canvas id="histats_counter_6683_canvas" width="203" height="33"></canvas></a></div><div id="histats_counter_2816" style="display: block;"><a href="http://www.histats.com/viewstats/?sid=4082121&amp;ccid=7" target="_blank"><canvas id="histats_counter_2816_canvas" width="203" height="33"></canvas></a></div></div>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4082121,4,7,200,30,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+_Hasync.push(['Histats.framed_page', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript>&amp;amp;amp;amp;lt;a href="/" target="_blank"&amp;amp;amp;amp;gt;&amp;amp;amp;amp;lt;img  src="//sstatic1.histats.com/0.gif?4082121&amp;amp;amp;amp;amp;101" alt="" border="0"&amp;amp;amp;amp;gt;&amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;gt;</noscript>
+<!-- Histats.com  END  --></div>
+
+                            
+ <iframe id="google_osd_static_frame_5184981382503" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><span><a id="DivTopAd"></a><a id="ad-zone-1"></a><a id="ad_190x90"></a><a id="ads-sticky"></a><a id="iqadtile5"></a><a id="leftframeAD"></a><a id="tobsideAd"></a><a id="ad"></a><a id="ads"></a><a id="adsense"></a></span>       <script async="" type="text/javascript" src="http://s4.histats.com/stats/4082121.php?4082121&amp;@f16&amp;@g0&amp;@h5&amp;@i1&amp;@j1528621276559&amp;@k77607&amp;@l5&amp;@mTembak%20Paket%20XL%20V2%20-%20gknightreborn.xyz&amp;@n0&amp;@o1000&amp;@q0&amp;@r0&amp;@s7&amp;@tid-ID&amp;@u360&amp;@vhttp%3A%2F%2Fgknightreborn.xyz%2F&amp;@w"></script><script async="" type="text/javascript" src="http://s10.histats.com/counters/cc_7.js"></script></body></html>
+</center>
             
            
         </div>
